@@ -5,10 +5,10 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: orderConfirmation:com.jmicroservice.order.kafka.OrderConfirmation
+        spring.json.type.mapping: paymentConfirmation:com.jmicroservice.payment.notification.PaymentNotificationRequest
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/order
+    url: jdbc:postgresql://localhost:5432/payment
     username: hoanlv
     password: hoanlv
   jpa:
@@ -27,10 +27,10 @@ spring:
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
 server:
-  port: 8092
+  port: 8093
 
 application:
   config:
     customer-url: http://localhost:8222/api/v1/customers
     product-url: http://localhost:8222/api/v1/products
-    payment-url: http://localhost:8222/api/v1/payments
+    payment-url: http://localhost:8222/api/v1/orders
