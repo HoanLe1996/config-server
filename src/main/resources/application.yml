@@ -1,5 +1,12 @@
 spring:
-  config:
-    import: optional:configserver:http://localhost:8888
+  profiles:
+    active: native
   application:
-    name: discovery-service
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations
+server:
+  port: 8888
